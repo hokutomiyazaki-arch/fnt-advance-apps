@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070707">
+<title>FNT アドバンス アプリ集｜Functional Neuro Training</title>
+<meta name="description" content="FNT アドバンス講習で使う3つのアプリ（頸部の固有受容感覚テスト・VORC トレーニング・SVV テスト）。講習の前にスマホのホーム画面に追加しておいてください。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Functional Neuro Training">
+<meta property="og:title" content="FNT アドバンス アプリ集">
+<meta property="og:description" content="講習で使う3つのアプリ（頸部の固有受容感覚テスト・VORC・SVV）。講習の前にホーム画面に追加しておいてください。">
+<meta property="og:url" content="https://hokutomiyazaki-arch.github.io/fnt-advance-apps/">
+<meta property="og:image" content="https://hokutomiyazaki-arch.github.io/fnt-advance-apps/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* 色・書体は vorc-trainer / hanasaki-awase の外まわりと同じ */
+:root{ --bg0:#050505; --bg1:#0e0e0f; --bg2:#1a1916; --accent:#d8bd84; --accent2:#a8874f; --accentInk:#141008;
+  --ink:#f4f1ea; --muted:#9d978b; --line:rgba(216,189,132,.18); --card:rgba(255,255,255,.035);
+  --serif:"Shippori Mincho","Hiragino Mincho ProN",serif; --latin:"Cormorant Garamond","Times New Roman",serif; }
+*{ box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html{ background:#050505; -webkit-text-size-adjust:100%; }
+html,body{ overflow-x:hidden; max-width:100%; }
+body{ font-family:"Noto Sans JP", system-ui, sans-serif; font-weight:500; letter-spacing:.02em; color:var(--ink); line-height:1.7;
+  background:radial-gradient(110% 70% at 50% -10%, var(--bg2) 0%, var(--bg1) 45%, var(--bg0) 100%); background-attachment:fixed; min-height:100vh; }
+a{ color:var(--accent); }
+:focus-visible{ outline:3px solid var(--accent); outline-offset:3px; border-radius:8px; }
+.wrap{ max-width:560px; margin:0 auto; padding:calc(36px + env(safe-area-inset-top)) 20px calc(28px + env(safe-area-inset-bottom)); }
+
+header{ text-align:center; margin-bottom:26px; }
+header img{ width:76px; height:76px; margin-bottom:10px; }
+header .fnt{ font-family:var(--latin); font-size:12px; letter-spacing:.42em; color:var(--accent); margin-bottom:12px; }
+header h1{ font-family:var(--serif); font-size:26px; font-weight:700; letter-spacing:.1em; line-height:1.5; }
+header h1 span{ display:block; font-family:var(--latin); font-size:40px; font-weight:500; letter-spacing:.2em; color:var(--accent); line-height:1.15; }
+.lead{ margin:18px auto 0; padding:14px 16px; border:1px solid var(--line); border-radius:14px; background:var(--card); font-size:14px; text-align:left; }
+.lead b{ color:var(--accent); font-weight:700; }
+
+.cards{ display:flex; flex-direction:column; gap:14px; margin:24px 0 30px; }
+.card{ display:grid; grid-template-columns:76px 1fr; gap:14px; align-items:start; padding:16px; border:1px solid var(--line); border-radius:18px; background:var(--card); }
+.card img{ width:76px; height:76px; border-radius:18px; display:block; }
+.card .no{ font-family:var(--latin); font-size:12px; letter-spacing:.3em; color:var(--accent2); }
+.card h2{ font-family:var(--serif); font-size:17px; font-weight:700; letter-spacing:.03em; line-height:1.45; margin-bottom:4px; }
+.card h2 small{ display:block; font-size:13px; color:var(--accent); letter-spacing:.04em; }
+.card p{ font-size:13px; color:var(--muted); line-height:1.75; }
+.card .tag{ display:inline-block; margin-top:6px; font-size:11px; color:var(--accent); border:1px solid var(--line); border-radius:999px; padding:1px 10px; }
+.open{ grid-column:1 / -1; display:flex; align-items:center; justify-content:center; min-height:48px; border-radius:999px; border:1px solid var(--accent);
+  color:var(--accent); text-decoration:none; font-size:15px; letter-spacing:.2em; }
+.open:active{ background:var(--accent); color:var(--accentInk); }
+
+h3{ font-family:var(--serif); font-size:18px; letter-spacing:.08em; color:var(--accent); margin-bottom:10px; text-align:center; }
+.guide{ border:1px solid var(--line); border-radius:16px; background:var(--card); padding:16px 18px; font-size:14px; }
+.guide b{ display:block; color:var(--ink); margin-top:10px; }
+.guide b:first-child{ margin-top:0; }
+.guide ol{ padding-left:1.4em; color:var(--muted); }
+.guide .note{ margin-top:12px; font-size:12px; color:var(--muted); }
+footer{ margin-top:34px; text-align:center; font-size:11px; color:var(--muted); letter-spacing:.06em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="FNT512-transparent.png" alt="FNT ロゴ">
+    <div class="fnt">FUNCTIONAL NEURO TRAINING</div>
+    <h1><span>ADVANCE</span>アプリ集</h1>
+    <div class="lead">FNT アドバンス講習で使う3つのアプリです。<br><b>講習の前に、3つともスマホのホーム画面に追加しておいてください。</b>当日はそこから開いて使います。</div>
+  </header>
+
+  <main class="cards">
+    <section class="card">
+      <img src="icons/app-neck.png" alt="">
+      <div>
+        <div class="no">01 · NECK</div>
+        <h2>頸部の固有受容感覚テスト<small>（首の傾きチェック付き）</small></h2>
+        <p>目を閉じたまま、頭を真ん中や覚えた点へ戻せるかを測ります。ふだんの首の傾きもチェックできます。</p>
+        <span class="tag">カメラを使います</span>
+      </div>
+      <a class="open" href="https://hokutomiyazaki-arch.github.io/hanasaki-awase/">開く</a>
+    </section>
+
+    <section class="card">
+      <img src="icons/app-vorc.png" alt="">
+      <div>
+        <div class="no">02 · VORC</div>
+        <h2>VORC トレーニング</h2>
+        <p>画面を見つめたまま、頭とスマホをいっしょに動かします。顔がカメラの真ん中からずれた量を VORC のエラーとして測り、練習します。</p>
+        <span class="tag">カメラを使います</span>
+      </div>
+      <a class="open" href="https://hokutomiyazaki-arch.github.io/vorc-trainer/">開く</a>
+    </section>
+
+    <section class="card">
+      <img src="icons/app-svv.png" alt="">
+      <div>
+        <div class="no">03 · SVV</div>
+        <h2>SVV テスト</h2>
+        <p>画面の赤い線を、スマホを傾けて「まっすぐ縦」「まっすぐ横」に合わせるチェックです（SVV・SVH＝自覚的視性垂直位・水平位）。</p>
+        <span class="tag">スマホの傾きで測ります</span>
+      </div>
+      <a class="open" href="https://hokutomiyazaki-arch.github.io/svv-check/">開く</a>
+    </section>
+  </main>
+
+  <section>
+    <h3>ホーム画面に追加する方法</h3>
+    <div class="guide">
+      <b>iPhone（Safari）</b>
+      <ol><li>上の「開く」でアプリを開く</li><li>下の共有ボタン（□から↑のマーク）を押す</li><li>「ホーム画面に追加」を選ぶ</li></ol>
+      <b>Android（Chrome）</b>
+      <ol><li>上の「開く」でアプリを開く</li><li>右上の「︙」を押す</li><li>「ホーム画面に追加」または「アプリをインストール」を選ぶ</li></ol>
+      <p class="note">メールや LINE の中で開いた画面には「ホーム画面に追加」が出ません。iPhone は Safari、Android は Chrome で開き直してください。</p>
+      <p class="note">3つのアプリそれぞれで同じ手順をくり返してください。カメラを使うアプリは、はじめて開いたときに「カメラの使用を許可」してください（映像は端末の外へ送りません）。</p>
+    </div>
+  </section>
+
+  <footer>© Functional Neuro Training</footer>
+</div>
+</body>
+</html>
