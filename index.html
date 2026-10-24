@@ -18,6 +18,12 @@
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<!-- 🔴 manifest と sw.js が無いと、Android ではアプリにならずショートカットになり、再起動で消える（2026-10-24） -->
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FNTアドバンス">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
@@ -114,7 +120,7 @@ footer{ margin-top:34px; text-align:center; font-size:11px; color:var(--muted); 
       <b>iPhone（Safari）</b>
       <ol><li>上の「開く」でアプリを開く</li><li>下の共有ボタン（□から↑のマーク）を押す</li><li>「ホーム画面に追加」を選ぶ</li></ol>
       <b>Android（Chrome）</b>
-      <ol><li>上の「開く」でアプリを開く</li><li>右上の「︙」を押す</li><li>「ホーム画面に追加」または「アプリをインストール」を選ぶ</li></ol>
+      <ol><li>上の「開く」でアプリを開く</li><li>右上の「︙」を押す</li><li>「ホーム画面に追加」を押し、出てきた画面で「<b>インストール</b>」を選ぶ（「ショートカットを作成」を選ぶと、再起動したときに消えることがあります）</li></ol>
       <p class="note">メールや LINE の中で開いた画面には「ホーム画面に追加」が出ません。iPhone は Safari、Android は Chrome で開き直してください。</p>
       <p class="note">3つのアプリそれぞれで同じ手順をくり返してください。カメラを使うアプリは、はじめて開いたときに「カメラの使用を許可」してください（映像は端末の外へ送りません）。</p>
     </div>
@@ -122,5 +128,8 @@ footer{ margin-top:34px; text-align:center; font-size:11px; color:var(--muted); 
 
   <footer>© Functional Neuro Training</footer>
 </div>
+<script>
+if ('serviceWorker' in navigator) addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(err => console.warn('[SW] register failed', err)); });
+</script>
 </body>
 </html>
